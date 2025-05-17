@@ -10,7 +10,7 @@ export default function HomePage() {
   useEffect(() => {
     async function getTrends() {
       const films = await getFilms();
-      console.log(" getTrends:", films);
+      // console.log(" getTrends:", films);
 
       setFilmsCollection(films);
     }

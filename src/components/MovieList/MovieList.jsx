@@ -4,7 +4,7 @@ import css from "./MovieList.module.css";
 export default function MovieList({ films }) {
   return (
     <ul className={css.wrapper}>
-      {films.map((film) => {
+      {films?.map((film) => {
         const link = `/movies/${film.id}`;
         return (
           <li className={css.item} key={film.id}>

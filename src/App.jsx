@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-// import "./App.css";
+import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import MoviesPage from "./pages/MoviesPage/MoviesPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
@@ -13,8 +13,8 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/movies" element={<MoviesPage />} />
       <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-        <Route index element={<MovieRaiting />} />
-        <Route path="raiting" element={<MovieRaiting />} />
+        {/* <Route index element={<MovieRaiting />} /> */}
+        {/* <Route path="raiting" element={<MovieRaiting />} /> */}
         <Route path="cast" element={<MovieCast />} />
         <Route path="reviews" element={<MovieReviews />} />
       </Route>

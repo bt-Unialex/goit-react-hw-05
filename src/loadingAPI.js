@@ -13,6 +13,8 @@ export function getFilms(requestFor = "trends", request = "") {
     trends: "/trending/movie/day",
     search: "/search/movie",
     details: `/movie/${request}`,
+    cast: `/movie/${request}/credits`,
+    reviews: `/movie/${request}/reviews`,
   };
 
   const param = new URLSearchParams({
@@ -26,10 +28,14 @@ export function getFilms(requestFor = "trends", request = "") {
   const URL = `${slug}?${param}`;
 
   return axios.get(URL).then((response) => {
-    // console.log("res ponse:", response.data);
+    // console.log("response:", response.data);
     switch (requestFor) {
       case "trends":
         return response.data.results;
+      case "reviews":
+        return response.data.results;
+      case "cast":
+        return response.data.cast;
       default:
         return response.data;
     }
