@@ -13,8 +13,8 @@ import clsx from "clsx";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
-  const location = useRef();
-  const currentLocation = useLocation();
+  const location = useLocation();
+  const bckLink = useRef(location.state);
 
   const [film, setFilm] = useState(null);
 
@@ -24,7 +24,6 @@ export default function MovieDetailsPage() {
       setFilm(res);
     }
     getMovie();
-    location.current = currentLocation;
   }, [movieId]);
 
   function activeStles({ isActive }) {
@@ -35,7 +34,7 @@ export default function MovieDetailsPage() {
       <Navigation />
       <Link
         className={css.backlink}
-        to={location.current?.state ?? "/"}
+        to={bckLink.current ?? "/"}
       >{`<< GO Back`}</Link>
       {film && (
         <>
@@ -58,9 +57,6 @@ export default function MovieDetailsPage() {
               <div className={css.linksblock}>
                 <h3 className={css.subtitle}>Additional information:</h3>
                 <div className={css.links}>
-                  {/* <NavLink className={activeStles} to="raiting">
-                    Raiting
-                  </NavLink> */}
                   <NavLink className={activeStles} to="cast">
                     Cast
                   </NavLink>

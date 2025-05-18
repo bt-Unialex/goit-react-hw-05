@@ -23,10 +23,7 @@ export default function MoviesPage() {
     async function searchMovies() {
       const query = searchParams.get("query");
       if (!query) return;
-      console.log("SEARCH query:", query);
       const films = await getFilms("search", query);
-      console.log("search:", films);
-
       setFilmsCollection(films);
     }
     searchMovies();
@@ -40,7 +37,13 @@ export default function MoviesPage() {
         <button className={css.button} type="submit">
           <FiSearch size="16px" />
         </button>
-        <input className={css.input} name="query" required autoFocus />
+        <input
+          className={css.input}
+          value={searchParams.get("query") ?? ""}
+          name="query"
+          required
+          autoFocus
+        />
       </form>
       {!!filmsCollection.length && <MovieList films={filmsCollection} />}
     </>
