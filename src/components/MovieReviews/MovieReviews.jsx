@@ -15,12 +15,18 @@ export default function MovieReviews() {
     getReviews();
   }, [movieId]);
 
-  return reviews.lenght ? (
+  return reviews.length ? (
     <ul className={css.wrapper}>
-      {reviews?.map((reviews) => {
+      {reviews.map((reviews) => {
         return (
           <li key={reviews.id}>
-            <h3 className={css.title}>{reviews.author}</h3>
+            <h3 className={css.title}>
+              {reviews.author}
+              <span className={css.date}>
+                {" "}
+                {reviews.created_at.split("T")[0]}
+              </span>
+            </h3>
             <p className={css.text}>{reviews.content}</p>
           </li>
         );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   NavLink,
   Link,
@@ -13,10 +13,10 @@ import clsx from "clsx";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
-  const location = useLocation();
-  const [film, setFilm] = useState(null);
+  const location = useRef();
+  const currentLocation = useLocation();
 
-  // const isFirstLoad = location.pathname === "/movies/" + movieId;
+  const [film, setFilm] = useState(null);
 
   useEffect(() => {
     async function getMovie() {
@@ -24,6 +24,7 @@ export default function MovieDetailsPage() {
       setFilm(res);
     }
     getMovie();
+    location.current = currentLocation;
   }, [movieId]);
 
   function activeStles({ isActive }) {
@@ -34,7 +35,7 @@ export default function MovieDetailsPage() {
       <Navigation />
       <Link
         className={css.backlink}
-        to={location.state ?? "/"}
+        to={location.current?.state ?? "/"}
       >{`<< GO Back`}</Link>
       {film && (
         <>

@@ -18,9 +18,9 @@ export function getFilms(requestFor = "trends", request = "") {
   };
 
   const param = new URLSearchParams({
-    language: "uk-UA",
+    // language: "uk-UA",
     // language: "en-US",
-    // query: encodeURIComponent(request),
+    query: encodeURIComponent(request),
     // page: page,
     // per_page: "10",
   });
@@ -30,14 +30,12 @@ export function getFilms(requestFor = "trends", request = "") {
   return axios.get(URL).then((response) => {
     // console.log("response:", response.data);
     switch (requestFor) {
-      case "trends":
-        return response.data.results;
-      case "reviews":
-        return response.data.results;
       case "cast":
         return response.data.cast;
-      default:
+      case "details":
         return response.data;
+      default:
+        return response.data.results;
     }
   });
 }

@@ -1,0 +1,14 @@
+.wrapper {
+    width: 97vw;
+    height: 97vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    width: fit-content;
+    font-size: 130px;
+    line-height: 1;
+    text-align: center;
+}

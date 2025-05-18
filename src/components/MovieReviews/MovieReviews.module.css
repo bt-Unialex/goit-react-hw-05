@@ -1,15 +1,16 @@
-.wrapper {
-    display: flex;
-
-    gap: 12px;
-}
+/* .wrapper {
+} */
 
 .title {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.1;
-    height: 64px;
     margin-top: 12px;
+}
+
+.date {
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .text {

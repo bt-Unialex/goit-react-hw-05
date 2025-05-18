@@ -5,7 +5,7 @@ import { getFilms } from "../../loadingAPI";
 import MovieList from "../../components/MovieList/MovieList";
 
 export default function HomePage() {
-  const [filmsCollection, setFilmsCollection] = useState(null);
+  const [filmsCollection, setFilmsCollection] = useState([]);
 
   useEffect(() => {
     async function getTrends() {
@@ -21,7 +21,7 @@ export default function HomePage() {
     <>
       <Navigation />
       <h2 className={css.title}>Trending today:</h2>
-      {filmsCollection && <MovieList films={filmsCollection} />}
+      {!!filmsCollection.length && <MovieList films={filmsCollection} />}
     </>
   );
 }
