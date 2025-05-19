@@ -39,7 +39,7 @@ export default function MoviesPage() {
         </button>
         <input
           className={css.input}
-          value={searchParams.get("query") ?? ""}
+          defaultValue={searchParams.get("query") ?? ""}
           name="query"
           required
           autoFocus

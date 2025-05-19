@@ -19,11 +19,13 @@ export function getFilms(requestFor = "trends", request = "") {
 
   const param = new URLSearchParams({
     // language: "uk-UA",
-    // language: "en-US",
-    query: encodeURIComponent(request),
-    // page: page,
-    // per_page: "10",
+    language: "en-US",
+    // query: encodeURIComponent(request),
   });
+
+  // if (requestFor === "reviews") param.set("language", "en-US");
+  if (requestFor === "search") param.set("query", encodeURIComponent(request));
+
   const slug = endpoints[requestFor];
   const URL = `${slug}?${param}`;
 

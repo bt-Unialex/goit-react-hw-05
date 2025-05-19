@@ -33,6 +33,6 @@ export default function MovieReviews() {
       })}
     </ul>
   ) : (
-    <p className={css.title}>No reviews yet</p>
+    <p className={css.fallback}>No reviews yet</p>
   );
 }

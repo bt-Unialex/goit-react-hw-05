@@ -1,3 +1,4 @@
+import fallback from "../../assets/fallback.jpg";
 import { useEffect, useRef, useState } from "react";
 import {
   NavLink,
@@ -41,7 +42,11 @@ export default function MovieDetailsPage() {
           <div className={css.wrapper}>
             <div className={css.img}>
               <img
-                src={"https://image.tmdb.org/t/p/w342" + film.poster_path}
+                src={
+                  (film.poster_path &&
+                    "https://image.tmdb.org/t/p/w342" + film.poster_path) ||
+                  fallback
+                }
                 alt="poster"
                 loading="lazy"
               />
